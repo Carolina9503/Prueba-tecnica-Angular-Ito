@@ -1,0 +1,100 @@
+<div class="contenedor">
+    <mat-card>
+        <mat-card-title>Usuarios</mat-card-title>
+        <mat-card-content>
+            <div class="filters">
+                <mat-form-field class="example-form-field" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" [(ngModel)]="emailFilter">
+                    <button *ngIf="emailFilter" matSuffix mat-icon-button aria-label="Clear" (click)="emailFilter=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field class="example-form-field" appearance="fill">
+                    <mat-label>Usuario</mat-label>
+                    <input matInput type="text" [(ngModel)]="usuarioFilter">
+                    <button *ngIf="usuarioFilter" matSuffix mat-icon-button aria-label="Clear" (click)="usuarioFilter=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field class="example-form-field" appearance="fill">
+                    <mat-label>Nombres</mat-label>
+                    <input matInput type="text" [(ngModel)]="nombresFilter">
+                    <button *ngIf="nombresFilter" matSuffix mat-icon-button aria-label="Clear" (click)="nombresFilter=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field class="example-form-field" appearance="fill">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput type="text" [(ngModel)]="apellidosFilter">
+                    <button *ngIf="apellidosFilter" matSuffix mat-icon-button aria-label="Clear" (click)="apellidosFilter=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <div class="filterButton">
+                <button mat-fab color="accent" (click)="createUser()">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <button mat-fab color="accent" (click)="filterUsers()">
+                    <mat-icon>search</mat-icon>
+                </button>
+
+            </div>
+
+        </mat-card-actions>
+    </mat-card>
+
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="userName">
+                <th mat-header-cell *matHeaderCellDef> Usuario </th>
+                <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Nombres </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lastName">
+                <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+                <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="isActive">
+                <th mat-header-cell *matHeaderCellDef> Activo </th>
+                <td mat-cell *matCellDef="let element"> {{element.isActive}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-fab color="accent" (click)="viewUser(element)">
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button mat-fab color="accent" (click)="editUser(element)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons>
+        </mat-paginator>
+    </div>
+
+</div>

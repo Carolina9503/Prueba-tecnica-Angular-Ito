@@ -1,0 +1,24 @@
+.inputsRow {
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+    align-items: stretch;
+    padding-top: 20px;
+}
+
+.filterButton {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin-right: 45px;
+}
+
+.contenedor {
+    padding: 20px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

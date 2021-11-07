@@ -1,0 +1,39 @@
+<div class="contenedor">
+    <mat-tab-group>
+        <mat-tab label="{{data.nombres}} {{data.apellidos}}">
+            <mat-card>
+                <mat-card-content>
+                    <div class="column">
+                        <div class="inputsRow">
+                            <mat-form-field class="example-form-field" appearance="fill">
+                                <mat-label>nombres</mat-label>
+                                <input disabled matInput type="text" [(ngModel)]="data.nombres">
+                            </mat-form-field>
+                            <mat-form-field class="example-form-field" appearance="fill">
+                                <mat-label>apellidos</mat-label>
+                                <input disabled matInput type="text" [(ngModel)]="data.apellidos">
+                            </mat-form-field>
+                            <mat-form-field class="example-form-field" appearance="fill">
+                                <mat-label>email</mat-label>
+                                <input disabled matInput type="text" [(ngModel)]="data.email">
+                            </mat-form-field>
+                            <mat-form-field class="example-form-field" appearance="fill">
+                                <mat-label>usuario</mat-label>
+                                <input disabled matInput type="text" [(ngModel)]="data.usuario">
+                            </mat-form-field>
+                            <mat-form-field class="example-form-field" appearance="fill">
+                                <mat-label>activo</mat-label>
+                                <input disabled matInput type="text" [(ngModel)]="data.activo">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <div class="filterButton">
+                        <button mat-raised-button color="primary" (click)="close()">Cerrar</button>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </mat-tab>
+    </mat-tab-group>
+</div>

@@ -1,0 +1,54 @@
+<div class="contenedor">
+    <mat-tab-group>
+        <mat-tab label="{{form.value.nombres}} {{form.value.apellidos}}">
+            <mat-card>
+                <mat-card-content>
+                    <div>
+                        <form class="column" [formGroup]="form" #formRef="ngForm" (ngSubmit)="submit()">
+                            <div class="inputsRow">
+                                <mat-form-field class="example-form-field" appearance="fill">
+                                    <mat-label>nombres</mat-label>
+                                    <input matInput type="text" formControlName="nombres">
+                                    <mat-error>
+                                        Nombre es <strong>requerido</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="example-form-field" appearance="fill">
+                                    <mat-label>apellidos</mat-label>
+                                    <input matInput type="text" formControlName="apellidos">
+                                    <mat-error>
+                                        Apellido es <strong>requerido</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="example-form-field" appearance="fill">
+                                    <mat-label>email</mat-label>
+                                    <input matInput type="text" formControlName="email">
+                                    <mat-error>
+                                        Se requiere un correo valido
+                                    </mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="example-form-field" appearance="fill">
+                                    <mat-label>usuario</mat-label>
+                                    <input matInput type="text" formControlName="usuario">
+                                    <mat-error>
+                                        Usuario es <strong>requerido</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="toggleRow">
+                                <mat-slide-toggle formControlName="activo">Activo</mat-slide-toggle>
+                            </div>
+
+                        </form>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <div class="filterButton">
+                        <button mat-raised-button color="primary" (click)="formRef.ngSubmit.emit()" [disabled]="!form.valid">Guardar</button>
+                        <button mat-raised-button color="primary" (click)="close()">Cerrar</button>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </mat-tab>
+    </mat-tab-group>
+</div>

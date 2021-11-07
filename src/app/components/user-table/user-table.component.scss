@@ -1,0 +1,30 @@
+table {
+    width: 100%;
+}
+
+.contenedor {
+    padding: 15px;
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    gap: 250px;
+    align-items: stretch;
+    padding-top: 20px;
+}
+
+mat-card-title {
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.filterButton {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+mat-card {
+    margin-bottom: 10px;
+}
